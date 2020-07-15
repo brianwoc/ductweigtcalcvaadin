@@ -35,7 +35,7 @@ public class Rectangular extends Duct {
                     (((sideA + 2 * InsulationThickness + 4 * SteelThickness) * (sideB + 2 * InsulationThickness + 4 * SteelThickness)) -
                             ((sideA + 2 * InsulationThickness + 2 * SteelThickness) * (sideB + 2 * InsulationThickness + 2 * SteelThickness))) * 1.3F / 1000000 * SteelDensity;
         }
-        return Weigh;
+        return Rectangular.round(Weigh,1);
     }
 
     public long getSideA() {
@@ -60,5 +60,10 @@ public class Rectangular extends Duct {
 
     public void setArea(long area) {
         this.area = area;
+    }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 }
