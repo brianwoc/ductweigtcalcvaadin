@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 public class Rectangular extends Duct {
     private long sideA;
     private long sideB;
-    private long area;
 
     public Rectangular() {
+
     }
 
     public double Thickness() {
@@ -33,7 +33,7 @@ public class Rectangular extends Duct {
             Weigh = ((((sideA + SteelThickness * 2) * (sideB + SteelThickness * 2)) - (sideA * sideB)) * 1.3F / 1000000 * SteelDensity) +
                     ((((sideA + InsulationThickness * 2) * (sideB + InsulationThickness * 2)) - (sideA * sideB)) / 1000000F * WoolDensity) +
                     (((sideA + 2 * InsulationThickness + 4 * SteelThickness) * (sideB + 2 * InsulationThickness + 4 * SteelThickness)) -
-                            ((sideA + 2 * InsulationThickness + 2 * SteelThickness) * (sideB + 2 * InsulationThickness + 2 * SteelThickness))) * 1.3F / 1000000 * SteelDensity;
+                    ((sideA + 2 * InsulationThickness + 2 * SteelThickness) * (sideB + 2 * InsulationThickness + 2 * SteelThickness))) * 1.3F / 1000000 * SteelDensity;
         }
         return Rectangular.round(Weigh,1);
     }
@@ -54,13 +54,7 @@ public class Rectangular extends Duct {
         this.sideB = sideB;
     }
 
-    public long getArea() {
-        return area;
-    }
 
-    public void setArea(long area) {
-        this.area = area;
-    }
 
     private static double round (double value, int precision) {
         int scale = (int) Math.pow(10, precision);
