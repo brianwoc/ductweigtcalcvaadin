@@ -41,9 +41,9 @@ public class MainView extends VerticalLayout {
 		workspace.setSizeFull();
 
 		// FOOTER
-		Tab actionButton1 = new Tab(VaadinIcon.HOME.create(), new Span("Home"));
-		Tab actionButton2 = new Tab(VaadinIcon.USERS.create(), new Span("Customers"));
-		Tab actionButton3 = new Tab(VaadinIcon.PACKAGE.create(), new Span("Products"));
+		Tab actionButton1 = new Tab(VaadinIcon.HOME.create(), new Anchor("/","Home"));
+		Tab actionButton2 = new Tab(VaadinIcon.SQUARE_SHADOW.create(), new Anchor("rectangular-duct", "Prostokątne"));
+		Tab actionButton3 = new Tab(VaadinIcon.CIRCLE.create(), new Anchor("circular-duct","Okrągłe"));
 		actionButton1.setClassName("tab");
 		actionButton2.setClassName("tab");
 		actionButton3.setClassName("tab");
@@ -61,7 +61,7 @@ public class MainView extends VerticalLayout {
 		drawer.getElement().addEventListener("click", ev->sideMenu.getStyle().set("left", "0px"));
 		Icon avatar = VaadinIcon.USER.create();
 		avatar.setSize("4em");
-		sideMenu.add(avatar, new Span("John Doe"),createMenuOption("User profile"), createMenuOption("Configuration"), createMenuOption("About"));
+		sideMenu.add(avatar, new Span("Brian"),createMenuOption("O autorze"), createMenuOption("O programie"), createMenuOption("Kontakt"));
 		sideMenu.setAlignItems(Alignment.CENTER);
 
 		// CONTAINER
