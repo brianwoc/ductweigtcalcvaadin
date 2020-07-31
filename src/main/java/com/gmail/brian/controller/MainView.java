@@ -16,7 +16,7 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
-@PWA(name = "Duct Weigt Calculator",
+@PWA(name = "Duct Weight Calculator",
 		shortName = "DWC",
 		description = "An application that calculates the weight of ventilation ducts",
 		enableInstallPrompt = false)
