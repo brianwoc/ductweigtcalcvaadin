@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: openjdk:7-jdk-alpine
+      - image: openjdk:8-jdk-alpine
 
 
     # Specify service dependencies here if necessary
