@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: openjdk:8-jdk-alpine
+      - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run
 
 
     # Specify service dependencies here if necessary
@@ -39,8 +39,7 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn test
-
+      - run: mvn package # run the actual tests
 #  deploy:
 #    docker:
 #      - image: circleci/buildpack-deps:trusty
@@ -55,10 +54,10 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - hold:
-          type: approval
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
+#      - hold:
+#          type: approval
+#          requires:
+#            - build
+#      - deploy:
+#          requires:
+#            - hold
