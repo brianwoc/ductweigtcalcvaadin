@@ -51,6 +51,7 @@ public class RectangularController extends VerticalLayout {
         outdoorRect.setValue(false);
 
         result = new TextField("Ciężar przewodu prostokątnego: [kg]");
+        result.setWidth("250px");
 
         add(sideA, sideB, isolationRect, outdoorRect, button, result, returnToMenu);
 

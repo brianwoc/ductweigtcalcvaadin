@@ -1,6 +1,7 @@
 package com.gmail.brian.controller;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Anchor;
@@ -14,12 +15,11 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
 
-@PWA(name = "Duct Weight Calculator",
-		shortName = "DWC",
-		description = "An application that calculates the weight of ventilation ducts",
-		enableInstallPrompt = false)
+//@PWA(name = "Duct Weight Calculator",
+//		shortName = "DWC",
+//		description = "An application that calculates the weight of ventilation ducts",
+//		enableInstallPrompt = false)
 @Route("")
 @CssImport("./styles/shared-styles.css")
 public class MainView extends VerticalLayout {
@@ -61,8 +61,9 @@ public class MainView extends VerticalLayout {
 		drawer.getElement().addEventListener("click", ev->sideMenu.getStyle().set("left", "0px"));
 		Icon avatar = VaadinIcon.USER.create();
 		avatar.setSize("4em");
-		sideMenu.add(avatar, new Span("Brian"),createMenuOption("O autorze"), createMenuOption("O programie"), createMenuOption("Kontakt"));
+		sideMenu.add(avatar, new Span("Brian"),createMenuOption("Autor"), createMenuOption("Program"), createMenuOption("Kontakt"));
 		sideMenu.setAlignItems(Alignment.CENTER);
+
 
 		// CONTAINER
 		setSizeFull();
@@ -77,6 +78,7 @@ public class MainView extends VerticalLayout {
 		m1.setWidth("100%");
 		m1.addClickListener(ev -> m1.getElement().getParent().getStyle().set("left", "-1000px"));
 		m1.addClickListener(ev -> Notification.show("Button " + title + " clicked."));
+		m1.addClickListener(ev -> UI.getCurrent().navigate(title));
 		return m1;
 	}
 
@@ -90,4 +92,7 @@ public class MainView extends VerticalLayout {
 		card.setHeight("200px");
 		return card;
 	}
+
+
+
 }

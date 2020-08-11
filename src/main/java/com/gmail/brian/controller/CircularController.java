@@ -49,6 +49,7 @@ public class CircularController extends VerticalLayout {
         outdoorCirc.setValue(false);
 
         result = new TextField("Ciężar przewodu okrągłego: [kg]");
+        result.setWidth("250px");
 
 
 
