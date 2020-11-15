@@ -23,7 +23,7 @@ public class Rectangular extends Duct {
     }
 
     public double CalculationWeigh() {
-        Thickness();
+//        Thickness();
         if ((!IsInsulation) & (!IsOutdoor)) {
             Weigh = ((sideA + SteelThickness * 2) * ((sideB + SteelThickness * 2)) - (sideA * sideB)) * 1.3F / 1000000 * SteelDensity;
         } else if ((IsInsulation) & (!IsOutdoor)) {
@@ -34,6 +34,22 @@ public class Rectangular extends Duct {
                     ((((sideA + InsulationThickness * 2) * (sideB + InsulationThickness * 2)) - (sideA * sideB)) / 1000000F * WoolDensity) +
                     (((sideA + 2 * InsulationThickness + 4 * SteelThickness) * (sideB + 2 * InsulationThickness + 4 * SteelThickness)) -
                     ((sideA + 2 * InsulationThickness + 2 * SteelThickness) * (sideB + 2 * InsulationThickness + 2 * SteelThickness))) * 1.3F / 1000000 * SteelDensity;
+        }
+        return Rectangular.round(Weigh,1);
+    }
+
+    public double CalculationWeighSilencer(double silencerWeight) {
+        Thickness();
+        if ((!IsInsulation) & (!IsOutdoor)) {
+            Weigh = silencerWeight;
+        } else if ((IsInsulation) & (!IsOutdoor)) {
+            Weigh = silencerWeight +
+                    ((((sideA + InsulationThickness * 2) * (sideB + InsulationThickness * 2)) - (sideA * sideB)) / 1000000F * WoolDensity);
+        } else {
+            Weigh = silencerWeight +
+                    ((((sideA + InsulationThickness * 2) * (sideB + InsulationThickness * 2)) - (sideA * sideB)) / 1000000F * WoolDensity) +
+                    (((sideA + 2 * InsulationThickness + 4 * SteelThickness) * (sideB + 2 * InsulationThickness + 4 * SteelThickness)) -
+                            ((sideA + 2 * InsulationThickness + 2 * SteelThickness) * (sideB + 2 * InsulationThickness + 2 * SteelThickness))) * 1.3F / 1000000 * SteelDensity;
         }
         return Rectangular.round(Weigh,1);
     }

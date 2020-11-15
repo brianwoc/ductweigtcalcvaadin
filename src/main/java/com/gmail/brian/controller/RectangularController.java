@@ -69,6 +69,7 @@ public class RectangularController extends VerticalLayout {
             rectangular.setInsulationThickness(Integer.parseInt(thicnessIsolation.getValue()));
         }
         rectangular.setOutdoor(outdoorRect.getValue());
+        rectangular.Thickness();
         return rectangular;
     }
 }

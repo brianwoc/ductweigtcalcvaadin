@@ -30,6 +30,8 @@ public class CircularController extends VerticalLayout {
     public CircularController(Circle circle) {
 
         this.circle = circle;
+
+        diameter.setWidth("250px");
         isolationCirc.setLabel("Czy przewód posiada izolację?");
         isolationCirc.setValue(false);
         isolationCirc.addValueChangeListener(click -> {
@@ -68,6 +70,8 @@ public class CircularController extends VerticalLayout {
             circle.setInsulationThickness(Integer.parseInt(thicnessIsolation.getValue()));
         }
         circle.setOutdoor(outdoorCirc.getValue());
+        circle.Thickness();
+
         return circle;
     }
 }

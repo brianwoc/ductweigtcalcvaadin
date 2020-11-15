@@ -11,15 +11,16 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-@Route("rectangular-duct")
+@Route("rectangular-silencer")
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
-public class RectangularController extends VerticalLayout {
+public class RectangularSilencerController extends VerticalLayout {
     Rectangular rectangular;
 
     TextField sideA = new TextField("Podaj długość boku A: [mm]");
     TextField sideB = new TextField("Podaj długość boku B: [mm]");
     TextField thicnessIsolation = new TextField("Podaj grubość izolacji: [mm]");
+    TextField silencerWeight = new TextField("Podaj cieżar samego tłumika: [kg]");
     Button button = new Button("Oblicz");
     Checkbox isolationRect =new Checkbox();
     Checkbox outdoorRect = new Checkbox();
@@ -27,7 +28,7 @@ public class RectangularController extends VerticalLayout {
     private TextField result;
 
     @Autowired
-    public RectangularController(Rectangular rectangular) {
+    public RectangularSilencerController(Rectangular rectangular) {
 
         this.rectangular = rectangular;
 
@@ -46,6 +47,10 @@ public class RectangularController extends VerticalLayout {
             }
         });
 
+        silencerWeight.setValue("0");
+        silencerWeight.setWidth("250px");
+
+
         outdoorRect.setEnabled(false);
         outdoorRect.setLabel("Czy przewód jest na zewnątrz?");
         outdoorRect.setValue(false);
@@ -53,11 +58,11 @@ public class RectangularController extends VerticalLayout {
         result = new TextField("Ciężar przewodu prostokątnego: [kg]");
         result.setWidth("250px");
 
-        add(sideA, sideB, isolationRect, outdoorRect, button, result, returnToMenu);
+        add(sideA, sideB, silencerWeight, isolationRect, outdoorRect, button, result, returnToMenu);
 
         button.addClickListener(click -> {
             createRectangular();
-            result.setValue(String.valueOf(rectangular.CalculationWeigh()));
+            result.setValue(String.valueOf(rectangular.CalculationWeighSilencer(Double.parseDouble(silencerWeight.getValue()))));
         });
     }
 
@@ -69,6 +74,7 @@ public class RectangularController extends VerticalLayout {
             rectangular.setInsulationThickness(Integer.parseInt(thicnessIsolation.getValue()));
         }
         rectangular.setOutdoor(outdoorRect.getValue());
+        rectangular.Thickness();
         return rectangular;
     }
 }
