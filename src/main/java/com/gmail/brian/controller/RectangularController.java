@@ -50,7 +50,7 @@ public class RectangularController extends VerticalLayout {
         outdoorRect.setLabel("Czy przewód jest na zewnątrz?");
         outdoorRect.setValue(false);
 
-        result = new TextField("Ciężar przewodu prostokątnego: [kg]");
+        result = new TextField("Ciężar przewodu prostokątnego: [kg/mb]");
         result.setWidth("250px");
 
         add(sideA, sideB, isolationRect, outdoorRect, button, result, returnToMenu);

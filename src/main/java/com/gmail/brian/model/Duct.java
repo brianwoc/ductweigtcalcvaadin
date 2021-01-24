@@ -4,6 +4,8 @@ public class Duct {
 
     protected final double SteelDensity = 7850;
     protected final double WoolDensity = 80;
+    protected final double PromatDensity = 975;
+
     protected double Weigh;
     protected double SteelThickness;
     protected boolean IsInsulation;

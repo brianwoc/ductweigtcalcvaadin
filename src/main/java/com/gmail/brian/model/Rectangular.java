@@ -23,7 +23,6 @@ public class Rectangular extends Duct {
     }
 
     public double CalculationWeigh() {
-//        Thickness();
         if ((!IsInsulation) & (!IsOutdoor)) {
             Weigh = ((sideA + SteelThickness * 2) * ((sideB + SteelThickness * 2)) - (sideA * sideB)) * 1.3F / 1000000 * SteelDensity;
         } else if ((IsInsulation) & (!IsOutdoor)) {
@@ -37,6 +36,14 @@ public class Rectangular extends Duct {
         }
         return Rectangular.round(Weigh,1);
     }
+
+    public double CalculationWeighPromat() {
+            Weigh = (sideA*2 +sideB*2)*InsulationThickness*PromatDensity/1000000+(9+ sideA*0.001*4+ sideB*0.001*4*0.63);
+
+
+        return Rectangular.round(Weigh,1);
+    }
+
 
     public double CalculationWeighSilencer(double silencerWeight) {
         Thickness();

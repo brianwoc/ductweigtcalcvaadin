@@ -39,7 +39,9 @@ public class MainView extends VerticalLayout {
 				createCard("/rectangular-duct", "OBLICZENIE DLA PRZEWODÓW PROSTOKĄTNYCH"),
 				createCard("/circular-duct", "OBLICZENIE DLA PRZEWODÓW OKRĄGŁYCH"),
 				createCard("/rectangular-silencer", "OBLICZENIA DLA TŁUMIKÓW PROSTOKĄTNYCH"),
-				createCard("/rectangular-wool-duct", "OBLICZENIE DLA PRZEWODÓW PROSTOKĄTNYCH Z WEŁNY MINERALNEJ")
+				createCard("/rectangular-wool-duct", "OBLICZENIE DLA PRZEWODÓW PROSTOKĄTNYCH Z WEŁNY MINERALNEJ"),
+				createCard("/rectangular-promat-duct", "OBLICZENIE DLA PRZEWODÓW PROSTOKĄTNYCH Z PROMATU")
+
 		);
 		workspace.addClassName("workspace");
 		workspace.setSizeFull();
@@ -49,13 +51,17 @@ public class MainView extends VerticalLayout {
 		Tab actionButton2 = new Tab(VaadinIcon.SQUARE_SHADOW.create(), new Anchor("rectangular-duct", "Prostokątne"));
 		Tab actionButton3 = new Tab(VaadinIcon.CIRCLE.create(), new Anchor("circular-duct","Okrągłe"));
 		Tab actionButton4 = new Tab(VaadinIcon.SQUARE_SHADOW.create(), new Anchor("rectangular-wool-duct", "Wełna"));
+		Tab actionButton5 = new Tab(VaadinIcon.SQUARE_SHADOW.create(), new Anchor("rectangular-silencer", "Tłumik"));
+		Tab actionButton6 = new Tab(VaadinIcon.SQUARE_SHADOW.create(), new Anchor("rectangular-promat-duct", "Promat"));
 
 		actionButton1.setClassName("tab");
 		actionButton2.setClassName("tab");
 		actionButton3.setClassName("tab");
 		actionButton4.setClassName("tab");
+		actionButton5.setClassName("tab");
+		actionButton6.setClassName("tab");
 
-		Tabs buttonBar = new Tabs(actionButton1, actionButton2, actionButton3, actionButton4);
+		Tabs buttonBar = new Tabs(actionButton1, actionButton2, actionButton3, actionButton4, actionButton5, actionButton6);
 		HorizontalLayout footer = new HorizontalLayout(buttonBar);
 		footer.setJustifyContentMode(JustifyContentMode.CENTER);
 		footer.setWidth("100%");
@@ -100,7 +106,5 @@ public class MainView extends VerticalLayout {
 		card.setHeight("200px");
 		return card;
 	}
-
-
 
 }

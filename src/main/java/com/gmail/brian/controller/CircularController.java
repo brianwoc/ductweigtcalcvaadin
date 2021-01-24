@@ -50,7 +50,7 @@ public class CircularController extends VerticalLayout {
         outdoorCirc.setLabel("Czy przewód jest na zewnątrz?");
         outdoorCirc.setValue(false);
 
-        result = new TextField("Ciężar przewodu okrągłego: [kg]");
+        result = new TextField("Ciężar przewodu okrągłego: [kg/mb]");
         result.setWidth("250px");
 
 

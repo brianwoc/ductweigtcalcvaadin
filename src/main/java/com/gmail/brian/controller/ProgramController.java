@@ -27,12 +27,14 @@ public class ProgramController extends VerticalLayout {
 
     Image rectangularNoIso = new Image("https://i.ibb.co/Ld80tXZ/prost-bez-izo.jpg", "Wzorcowe obciążenia dla przewodów prostokątnych bez izolacji");
     Image rectangularIso = new Image("https://i.ibb.co/MCh7pF8/prost-izo.jpg", "Wzorcowe obciążenia dla przewodów prostokątnych bez izolacji");
+    Image promatExample = new Image("https://i.ibb.co/c6f7Hj4/Promat-example.jpg", "Przykład obliczeniowy dla przewodów prostokątnych z promatu");
+
 
     Anchor returnToMenu = new Anchor("/", "Powrót do menu głównego");
 
     @Autowired
     public ProgramController() {
-        add(h1, html, rectangularNoIso,rectangularIso, returnToMenu);
+        add(h1, html, rectangularNoIso,rectangularIso, promatExample, returnToMenu);
     }
 }
 
